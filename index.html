@@ -24,18 +24,47 @@
 
     <main>
 
+        <!-- Hero Section -->
         <section>
             <h1>Find Your Dream Job</h1>
 
             <p>
-                Search thousands of job from top companies and start your career today.
+                Search thousands of jobs from top companies and start your career today.
             </p>
 
-            <button>Browse Jobs</button>
-            <button>Post a Job </button>
+            <button>Search Jobs</button>
+            <button>Post a Job</button>
+
         </section>
 
-        <section>
+        <!-- Job Listings Section-->
+        <section id="job-search">
+
+            <h2>Search Job Opportunities</h2>
+
+            <form>
+                <div>
+                    <label for="job-title">Job Title</label> 
+                    <input 
+                        type="text" id="job-title" 
+                        name="job-title" 
+                        placeholder="eg. Software Engineer">
+                </div>
+
+                <div>
+                    <label for="job-type">Work Mode</label>
+                    <select id="job-type" name="job-type">
+                        <option value="full-time">Full-Time</option>
+                        <option value="part-time">Part-Time</option>
+                        <option value="on-site">On-Site</option>
+                        <option value="remote">Remote</option>
+                        <option value="internship">Internship</option>
+                    </select>
+                </div>
+
+                <button type="submit">Search Jobs</button>
+
+            </form>
 
         </section>
 
