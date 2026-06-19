@@ -130,9 +130,10 @@ select {
 }
 
 .job-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 20px 0;
 }
 
 .job-card {
