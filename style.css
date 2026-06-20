@@ -43,6 +43,13 @@ nav a:hover {
   text-decoration: underline;
 }
 
+.job-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 20px 0;
+}
+
 #hero {
   text-align: center;
   padding: 25px 20px;
@@ -129,12 +136,44 @@ select {
   margin-bottom: 20px;
 }
 
-.job-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding: 20px 0;
+
+/* Tablet - 2 columns*/
+@media (max-width: 768px) {
+  .job-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  nav {
+    padding: 20px;
+    justify-content: center;
+    gap: 16px;
+  }
 }
+
+/* Mobile - 1 column */
+@media (max-width: 480px) {
+  .job-container {
+    grid-template-columns: 1fr;
+  }
+
+  #hero {
+    padding: 60px 16px;
+  }
+
+  #job-search {
+    padding: 24px 16px;
+  }
+
+  input,
+  select {
+    min-width: 100%;
+  }
+}
+
 
 .job-card {
   flex: 1 1 300px;
