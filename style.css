@@ -82,8 +82,8 @@ nav a:hover {
 }
 
 #hero .btn-secondary {
-  background-color: var(--color-dark);
-  color: var(--color-white);
+  background-color: transparent;
+  color: var(--color-dark);
   border: 2px solid var(--color-dark);
 }
 
@@ -92,14 +92,17 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-button {
   transition: 0.3s;
 }
 
 button:hover {
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0,0.15); 
+}
+
+#hero .btn-primary:hover {
+  background-color: var(--color-dark);
+  color: var(--color-white);
 }
 
 #job-search {
@@ -183,14 +186,14 @@ select {
   border: 1px solid var(--color-border);
   border-radius: 10px;
   padding: 15px;
-}
-
-.job-card {
   transition: 0.3s;
 }
 
+
 .job-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-dark);
 }
 
 .job-card h3 {
