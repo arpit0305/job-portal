@@ -36,19 +36,20 @@ const jobs = [
         description: 'Experience with Node.js and databases.'
     },
     {
+        title:   'Data Analyst',
+        company: 'DataMind',
+        location:'Pune, India',
+        type:    'Full-Time',
+        description: 'Analyze business data and generate insights.'
+    },
+    {
         title:   'UI/UX Designer',
         company: 'Pixel Studio',
         location:'Mumbai, India',
         type:    'Hybrid',
         description: 'Create user-friendly and modern interfaces.'
     },
-    {
-        title:   'Data Analyst',
-        company: 'DataMind',
-        location:'Pune, India',
-        type:    'Full-Time',
-        description: 'Analyze business data and generate insights.'
-    }
+    
 ]
 
 // renderJobs - takes an array of job objects and builds cards on the page
