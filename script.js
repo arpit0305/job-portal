@@ -11,7 +11,7 @@ const jobs = [
         company: 'TechNova',
         location: 'Bangalore, India',
         type: 'Full-time',
-        description: 'Looking for a frontened developer with HTML, CSS andJavascript skills.'
+        description: 'Looking for a frontened developer with HTML, CSS and Javascript skills.'
     },
     {
          title:   'DevOps Engineer',
@@ -93,4 +93,14 @@ jobTitleInput.addEventListener('input', () => {
         return job.title.toLowerCase().includes(searchText);
     })
     renderJobs(filteredJobs);
+})
+
+searchForm.addEventListener('submit', function(event){
+
+    event.preventDefault();
+    const searchText = jobTitleInput.value.toLowerCase();
+    const filteeredJobs = jobs.filter(job => {
+        return job.title.toLowerCase().includes(searchText);
+    })
+    renderJobs(filteeredJobs);
 })
