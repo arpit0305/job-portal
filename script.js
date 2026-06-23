@@ -3,7 +3,6 @@
 const jobTitleInput = document.getElementById('job-title');
 const jobTypeSelect = document.getElementById('job-type');
 const searchForm = document.querySelector('search-form');
-
 const jobContainer = document.querySelector('#job-container');
 
 const jobs = [
@@ -58,7 +57,7 @@ function renderJobs(jobsList) {
     //cleared the container before rendering
     
     jobContainer.innerHTML = '';
-    jobList.forEach(job => {
+    jobsList.forEach(job => {
 
         //created a blank <article> element
         const card = document.createElement('article');
@@ -79,7 +78,7 @@ function renderJobs(jobsList) {
     })
 
     // if no jobs matched, show a message
-    if (jobList.length === 0) {
+    if (jobsList.length === 0) {
         jobContainer.innerHTML = '<p style="color: #555;">No jobs found.Try a different search.</p>';
     }
 
@@ -87,3 +86,11 @@ function renderJobs(jobsList) {
 
 // render all jobs on page load
 renderJobs(jobs);
+
+jobTitleInput.addEventListener('input', () => {
+    const searchText = jobTitleInput.value.toLowerCase();
+    const filteredJobs = jobs.filter(job => {
+        return job.title.toLowerCase().includes(searchText);
+    })
+    renderJobs(filteredJobs);
+})
