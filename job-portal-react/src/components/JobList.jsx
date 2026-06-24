@@ -1,7 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function JobList({ jobs }) {
+function JobList() {
   const [query, setQuery] = useState('');
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    fetch('https://remotive.com/api/remote-jobs')
+      .then((res) => res.json())
+      .then((data) => setJobs(data.jobs));
+  }, []);
 
   const filteredJobs = jobs.filter((job) =>
     job.title.toLowerCase().includes(query.toLowerCase())
