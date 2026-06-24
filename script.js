@@ -102,5 +102,5 @@ searchForm.addEventListener('submit', function(event){
     const filteeredJobs = jobs.filter(job => {
         return job.title.toLowerCase().includes(searchText);
     })
-    renderJobs(filteeredJobs);
+    renderJobs()
 })
