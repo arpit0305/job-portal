@@ -3,16 +3,28 @@ import { useState, useEffect } from 'react';
 function JobList() {
   const [query, setQuery] = useState('');
   const [jobs, setJobs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     fetch('https://remotive.com/api/remote-jobs')
       .then((res) => res.json())
-      .then((data) => setJobs(data.jobs));
+      .then((data) => {
+        setJobs(data.jobs);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setHasError(true);
+        setIsLoading(false);
+      });
   }, []);
 
   const filteredJobs = jobs.filter((job) =>
     job.title.toLowerCase().includes(query.toLowerCase())
   );
+
+  if (isLoading) return <p>Loading jobs...</p>;
+  if (hasError) return <p>Something went wrong. Please try again.</p>;
 
   return (
     <div>
