@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import JobCard from './JobCard';
 
 function JobList() {
   const [query, setQuery] = useState('');
@@ -39,10 +40,12 @@ function JobList() {
         <p>No jobs found.</p>
       ) : (
         filteredJobs.map((job) => (
-          <div key={job.id}>
-            <h3>{job.title}</h3>
-            <p>{job.company_name}</p>
-          </div>
+          <JobCard
+            key={job.id}
+            title={job.title}
+            company={job.company_name}
+            type={job.job_type}
+          />
         ))
       )}
     </div>
