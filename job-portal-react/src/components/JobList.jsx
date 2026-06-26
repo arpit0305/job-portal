@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import JobCard from './JobCard';
 
-function JobList() {
-  const [query, setQuery] = useState('');
+function JobList({ query }) {
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -42,25 +41,18 @@ function JobList() {
 
   return (
     <div>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search jobs..."
-      />
-
       {filteredJobs.length === 0 ? (
         <p>No jobs found.</p>
       ) : (
         filteredJobs.map((job) => (
           <JobCard
             key={job.id}
+            id={job.id}
             title={job.title}
             company={job.company_name}
             type={job.job_type}
             isSaved={savedIds.has(job.id)}
             onToggleSave={handleToggleSave}
-            id={job.id}
           />
         ))
       )}
