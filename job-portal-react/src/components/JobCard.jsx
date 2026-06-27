@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function JobCard({ id, title, company, type, isSaved, onToggleSave }) {
   return (
     <div className="job-card">
@@ -7,6 +9,7 @@ function JobCard({ id, title, company, type, isSaved, onToggleSave }) {
       <button onClick={() => onToggleSave(id)}>
         {isSaved ? 'Saved ✓' : 'Save Job'}
       </button>
+      <Link to={`/jobs/${id}`}>View Details</Link>
     </div>
   );
 }

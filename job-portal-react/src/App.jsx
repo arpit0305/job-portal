@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import JobList from "./components/JobList";
 import FilterBar from "./components/FilterBar";
+import JobDetail from "./pages/JobDetail";
 
 function App() {
   const [query, setQuery] = useState('');
@@ -8,8 +10,18 @@ function App() {
   return (
     <div>
       <h1>Job Portal</h1>
-      <FilterBar query={query} onQueryChange={setQuery} />
-      <JobList query={query} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <FilterBar query={query} onQueryChange={setQuery} />
+              <JobList query={query} />
+            </>
+          }
+        />
+        <Route path="/jobs/:id" element={<JobDetail />} />
+      </Routes>
     </div>
   );
 }
